@@ -1,0 +1,2 @@
+# Mindicator
+railway app
