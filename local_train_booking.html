@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Train Ticket Booking - UTS</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>/* styles.css */
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+    #local-train-booking {
+      width: 50%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"] {
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #submitButton {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  #submitButton:hover {
+      background-color: #bd363d;
+  }
+    </style>
+</head>
+<body>
+  <header>
+    <h1>Local Train Ticket Booking - UTS</h1>
+  </header>
+  <div id="local-train-booking">
+    <form id="ticket-booking-form">
+      <label for="source-station">Source Station:</label><br><select id="source-station" name="sourceStation">
+        <option value="csmt">CSMT</option>
+        <option value="masjid">Masjid</option>
+        <option value="sandhrust road">Sandhrust Road</option>
+        <option value="byculla">Byculla</option>
+        <option value="chinchpokli">Chinchpokli</option>
+        <option value="currey road">Currey Road</option>
+        <option value="parel">Parel</option>
+        <option value="dadar">Dadar</option>
+        <option value="matunga">Matunga</option>
+        <option value="sion">Sion</option>
+        <option value="kurla">Kurla</option>
+        <option value="vidyavihar">Vidyavihar</option>
+        <option value="ghatkopar">Ghatkopar</option>
+        <option value="vikhroli">Vikhroli</option>
+        <option value="kanjur marg">Kanjur Marg</option>
+        <option value="bhandup">Bhandup</option>
+        <option value="nahur">Nahur</option>
+        <option value="mulund">Mulund</option>
+        <option value="thane">Thane</option>
+        <option value="kalva">Kalva</option>
+        <option value="mumbra">Mumbra</option>
+        <option value="diva">Diva</option>
+        <option value="kopar">Kopar</option>
+        <option value="dombivali">Dombivali</option>
+        <option value="thakurli">Thakurli</option>
+        <option value="kalyan">Kalyan</option>
+        <option value="vithalvadi">Vithalvadi</option>
+        <option value="ulhasnagar">Ulhasnagar</option>
+        <option value="ambernaath">Ambernaath</option>
+      </select><br><br>
+
+      <label for="destination-station">Destination Station:</label><br>
+      <select id="source-station" name="sourceStation">
+        <option value="csmt">CSMT</option>
+        <option value="masjid">Masjid</option>
+        <option value="sandhrust road">Sandhrust Road</option>
+        <option value="byculla">Byculla</option>
+        <option value="chinchpokli">Chinchpokli</option>
+        <option value="currey road">Currey Road</option>
+        <option value="parel">Parel</option>
+        <option value="dadar">Dadar</option>
+        <option value="matunga">Matunga</option>
+        <option value="sion">Sion</option>
+        <option value="kurla">Kurla</option>
+        <option value="vidyavihar">Vidyavihar</option>
+        <option value="ghatkopar">Ghatkopar</option>
+        <option value="vikhroli">Vikhroli</option>
+        <option value="kanjur marg">Kanjur Marg</option>
+        <option value="bhandup">Bhandup</option>
+        <option value="nahur">Nahur</option>
+        <option value="mulund">Mulund</option>
+        <option value="thane">Thane</option>
+        <option value="kalva">Kalva</option>
+        <option value="mumbra">Mumbra</option>
+        <option value="diva">Diva</option>
+        <option value="kopar">Kopar</option>
+        <option value="dombivali">Dombivali</option>
+        <option value="thakurli">Thakurli</option>
+        <option value="kalyan">Kalyan</option>
+        <option value="vithalvadi">Vithalvadi</option>
+        <option value="ulhasnagar">Ulhasnagar</option>
+        <option value="ambernath">Ambernath</option>
+      </select><br><br>
+      
+      <!-- <label for="departure-time">Departure Time:</label><br>
+      <input type="text" id="departure-time" name="departureTime"><br><br>
+      <label for="passenger-name">Passenger Name:</label><br>
+      <input type="text" id="passenger-name" name="passengerName"><br><br> -->
+      <p id="fareDisplay"></p> <!-- This element will display the fare -->
+
+    <button type="submit" id="submitButton" formaction="payment.html" onclick="calculateFare()">Book Ticket</button>
+    </form>
+  </div>
+
+  <script src="booking.js"></script>
+  <script>
+    function calculateFare() {
+      // Add your fare calculation logic here
+      // For demonstration purposes, let's assume the fare is 100 for now
+      var fare = 100;
+
+      // Display the fare in the HTML
+      document.getElementById("fareDisplay").innerHTML = "Pay " + fare + " Rs.";
+    }
+  </script>
+</body>
+</html>
